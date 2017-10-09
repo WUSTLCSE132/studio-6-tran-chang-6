@@ -1,14 +1,9 @@
 const int buttonPin = 2;
 volatile int count = 0;
-unsigned long lastTime = 100;
-unsigned long buttonTime = 0;
+
 void buttonPressed() {
-  if (millis() - buttonTime > lastTime) {
   Serial.println("Interrupt");
-  Serial.println(count);
   count++;
-  }
-  buttonTime = millis();
 }
 
 void setup() {
@@ -21,5 +16,8 @@ void setup() {
 }
 
 void loop() {
-    
+  for(int i=0;i<100;i++) {
+    Serial.println(count);
+    delay(1000);
+  }
 }
